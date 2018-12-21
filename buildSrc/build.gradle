@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.2.1'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'org.ow2.asm:asm:6.0'
+}
+repositories {
+    jcenter()
+    google()
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
