@@ -1,4 +1,4 @@
-package com.antiless.plugin
+package com.antiless.plugin.inject
 
 import com.android.build.api.transform.*
 import com.android.build.api.transform.QualifiedContent.ContentType

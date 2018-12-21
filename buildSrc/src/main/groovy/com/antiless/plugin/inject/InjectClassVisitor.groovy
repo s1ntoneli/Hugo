@@ -1,4 +1,4 @@
-package com.antiless.plugin
+package com.antiless.plugin.inject
 
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor

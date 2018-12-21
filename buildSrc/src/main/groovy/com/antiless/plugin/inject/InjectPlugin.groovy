@@ -1,8 +1,7 @@
-package com.antiless.plugin
+package com.antiless.plugin.inject
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.BasePlugin
 import com.android.build.gradle.BaseExtension
 
 class InjectPlugin implements Plugin<Project> {

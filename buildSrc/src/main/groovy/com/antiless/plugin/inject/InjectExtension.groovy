@@ -1,4 +1,4 @@
-package com.antiless.plugin
+package com.antiless.plugin.inject
 
 class InjectExtension {
     String versionLabel
