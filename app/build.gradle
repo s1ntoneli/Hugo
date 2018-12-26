@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'com.antiless.plugin.InjectPlugin'
-apply plugin: 'inject'
+//apply plugin: 'inject'
+apply plugin: 'hugo'
+
+hugo {
+    enabled true
+}
 
 android {
     compileSdkVersion 26
@@ -17,6 +22,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        dev {
+            applicationIdSuffix '.dev'
+            debuggable true
+        }
     }
 }
 
@@ -25,6 +35,8 @@ configurations.all {
 }
 
 dependencies {
+    implementation project(':hugo-annotations')
+    debugImplementation project(':hugo-runtime')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
