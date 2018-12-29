@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import hugo.weaving.log.LogInfo;
+import hugo.weaving.log.LogLevel;
+
 import static hugo.weaving.Predictions.checkNotNull;
 
 public class HugoRuntime {
@@ -23,7 +26,7 @@ public class HugoRuntime {
         if (sOptions == null) return;
 
         for (LogHandler handler : sOptions.handlers()) {
-            boolean handled = handler.handle(new LogEventInfo(getLogEventType(methodName), tag, msg));
+            boolean handled = handler.handle(new LogInfo(getLogEventType(methodName), tag, msg, System.currentTimeMillis()));
             if (handled) break;
         }
     }
@@ -36,7 +39,7 @@ public class HugoRuntime {
         sOptions = options;
     }
 
-    @LogEventInfo.LogEventType
+    @LogLevel
     private static int getLogEventType(String methodName) {
         switch (methodName) {
             case "v":

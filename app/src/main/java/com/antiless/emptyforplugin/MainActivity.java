@@ -43,7 +43,12 @@ public class MainActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            Log.v("MainActivity", "inject " + num);
+                            Log.d("MainActivity", "inject " + num);
                             Log.i("MainActivity", "inject " + num);
+                            Log.w("MainActivity", "inject " + num);
+                            Log.e("MainActivity", "inject " + num);
+                            Log.wtf("MainActivity", "inject " + num);
                         }
                     }, n * 1000);
                 }

@@ -3,6 +3,8 @@ package hugo.weaving;
 import android.content.Context;
 import android.content.Intent;
 
+import hugo.weaving.log.LogInfo;
+
 import static hugo.weaving.Predictions.checkNotNull;
 
 /**
@@ -20,7 +22,7 @@ public class FloatWindowLogHandler implements LogHandler {
 
     private boolean isShowing = false;
     @Override
-    public boolean handle(LogEventInfo info) {
+    public boolean handle(LogInfo info) {
         if (isShowing) append(info);
         return false;
     }
@@ -35,16 +37,37 @@ public class FloatWindowLogHandler implements LogHandler {
 
         Context context = checkNotNull(HugoRuntime.getApplicationContext(), "app should not be Null");
         Intent intent = new Intent(context, LogFloatWindowService.class);
+        intent.setAction(LogFloatWindowService.ACTION_SHOW_WINDOW);
         context.startService(intent);
     }
 
-    public void append(LogEventInfo info) {
+    public void hide() {
+        if (!isShowing) return;
+        isShowing = false;
+
+        Context context = checkNotNull(HugoRuntime.getApplicationContext(), "app should not be Null");
+        Intent intent = new Intent(context, LogFloatWindowService.class);
+        intent.setAction(LogFloatWindowService.ACTION_HIDE_WINDOW);
+        context.startService(intent);
+    }
+
+    public void clear() {
+        if (!isShowing) return;
+        isShowing = false;
+
+        Context context = checkNotNull(HugoRuntime.getApplicationContext(), "app should not be Null");
+        Intent intent = new Intent(context, LogFloatWindowService.class);
+        intent.setAction(LogFloatWindowService.ACTION_CLEAR_LOG);
+        context.startService(intent);
+    }
+
+    public void append(LogInfo info) {
         Context context = checkNotNull(HugoRuntime.getApplicationContext(), "HugoRuntime should be init first");
         Intent intent = new Intent(context, LogFloatWindowService.class);
         intent.setAction(LogFloatWindowService.ACTION_APPEND_LOG);
         intent.putExtra(LogFloatWindowService.EXTRA_TAG, info.tag);
         intent.putExtra(LogFloatWindowService.EXTRA_MESSAGE, info.message);
-        intent.putExtra(LogFloatWindowService.EXTRA_TYPE, info.type);
+        intent.putExtra(LogFloatWindowService.EXTRA_LEVEL, info.level);
         context.startService(intent);
     }
 }

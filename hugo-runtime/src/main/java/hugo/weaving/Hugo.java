@@ -24,6 +24,9 @@ public class Hugo {
     @Pointcut("within(@hugo.weaving.DebugLog *)")
     public void withinAnnotatedClass() {}
 
+    @Pointcut("within(hugo.weaving.*)")
+    public void withinPlugin() {}
+
     @Pointcut("execution(!synthetic * *(..)) && withinAnnotatedClass()")
     public void methodInsideAnnotatedType() {}
 
@@ -31,8 +34,11 @@ public class Hugo {
     public void constructorInsideAnnotatedType() {}
 
 //    @Pointcut("call(static * com.antiless.emptyforplugin.MainActivity.yes(String,String))")
-    @Pointcut("call(static * android.util.Log.i(String,String))")
+    @Pointcut("call(static * android.util.Log.*(String,String))")
     public void log() {}
+
+    @Pointcut("log() && !withinPlugin()")
+    public void logInApp() {}
 
     @Pointcut("execution(@hugo.weaving.DebugLog * *(..)) || methodInsideAnnotatedType()")
     public void method() {}
@@ -44,7 +50,7 @@ public class Hugo {
         Hugo.enabled = enabled;
     }
 
-    @Around("log()")
+    @Around("logInApp()")
     public Object printLog(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         String tag = (String) joinPoint.getArgs()[0];

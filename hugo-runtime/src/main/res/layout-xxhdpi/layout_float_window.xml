@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="256dp">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:layout_marginTop="24dp"
-        >
-
-        <TextView
-            android:id="@+id/log"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            />
-
-    </ScrollView>
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/move"
-        android:layout_gravity="end|top"
+    android:background="#aaffffff"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/console"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:padding="8dp"
+        android:text="vConsole"
         />
-</FrameLayout>
+    <hugo.weaving.log.LogView
+        android:id="@+id/logView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

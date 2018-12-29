@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">hugo-runtime</string>
+    <string name="hint_filter_text">输入过滤信息</string>
 </resources>
