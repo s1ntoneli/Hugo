@@ -8,9 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import hugo.weaving.DebugLog;
-import hugo.weaving.FloatWindowLogHandler;
-import hugo.weaving.TapTapHelper;
+import com.antiless.hugo.handlers.floatwindow.FloatWindowLogHandler;
+import com.antiless.hugo.common.TapTapHelper;
+import com.com.antiless.emptyforplugin.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @DebugLog
     public static void yes(String first, String last) {
     }
 }

@@ -1,10 +1,7 @@
 package com.antiless.plugin.hugo
 
-import com.android.build.api.dsl.extension.AndroidExtension
 import com.android.build.gradle.AppPlugin
-import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryPlugin
-import com.android.projectmodel.AndroidProject
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main

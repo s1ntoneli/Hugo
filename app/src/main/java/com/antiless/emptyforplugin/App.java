@@ -2,9 +2,9 @@ package com.antiless.emptyforplugin;
 
 import android.app.Application;
 
-import hugo.weaving.FloatWindowLogHandler;
-import hugo.weaving.HugoRuntime;
-import hugo.weaving.HugoRuntimeOptions;
+import com.antiless.hugo.handlers.floatwindow.FloatWindowLogHandler;
+import com.antiless.hugo.HugoRuntime;
+import com.antiless.hugo.runtime.HugoRuntimeOptions;
 
 /**
  * Created by lixindong2 on 12/25/18.

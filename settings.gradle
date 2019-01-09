@@ -1,1 +1,1 @@
-include ':app',':buildSrc', ':hugo-runtime', ':hugo-annotations'
+include ':app',':buildSrc', ':hugo-runtime'

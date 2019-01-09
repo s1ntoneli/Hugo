@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hugo.weaving" >
+    package="com.antiless.hugo" >
 
     <application>
-        <service android:name=".LogFloatWindowService" />
+        <service android:name="com.antiless.hugo.handlers.floatwindow.LogFloatWindowService" />
     </application>
 </manifest>
